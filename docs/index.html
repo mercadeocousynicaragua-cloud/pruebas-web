@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-TC7DDC2H');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Regalos corporativos y productos ecológicos hechos a mano | Cousy Nicaragua</title>
+    <meta
+      name="description"
+      content="Regalos corporativos y productos ecológicos hechos a mano en Nicaragua. Armá tu cotización B2B y envíanos tu lista por WhatsApp."
+    />
+    <meta name="robots" content="index,follow" />
+    <meta name="theme-color" content="#ec1665" />
+    <link rel="manifest" href="./manifest.json" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Cousy" />
+    <link rel="canonical" href="https://cousynicaragua.com/" />
+    <link rel="icon" href="./assets/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
+    <style>
+      :root {
+        color-scheme: light;
+      }
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        background: #fff;
+        color: #111;
+      }
+      .wrap {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 48px 18px;
+      }
+      .card {
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        border-radius: 18px;
+        padding: 18px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .brand img {
+        width: 56px;
+        height: 56px;
+        border-radius: 14px;
+        object-fit: cover;
+        border: 1px solid rgba(0, 0, 0, 0.12);
+      }
+      h1 {
+        font-size: 28px;
+        line-height: 1.2;
+        margin: 18px 0 6px;
+      }
+      h2 {
+        font-size: 18px;
+        line-height: 1.3;
+        margin: 18px 0 6px;
+      }
+      p {
+        margin: 10px 0;
+        color: rgba(0, 0, 0, 0.72);
+        line-height: 1.5;
+      }
+      .grid {
+        display: grid;
+        gap: 12px;
+        margin-top: 18px;
+      }
+      .btn {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        width: 100%;
+        padding: 14px 14px;
+        border-radius: 14px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        background: #fff;
+        color: #111;
+        text-decoration: none;
+        font-weight: 650;
+      }
+      .btn:hover {
+        background: rgba(0, 0, 0, 0.03);
+      }
+      .muted {
+        font-weight: 500;
+        color: rgba(0, 0, 0, 0.6);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TC7DDC2H"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <main class="wrap">
+      <div class="card">
+        <div class="brand">
+          <img src="./assets/logo-cousy.webp" alt="Logo de Cousy Nicaragua" />
+          <div>
+            <strong>Cousy Nicaragua</strong>
+            <div class="muted">B2B · Cotizaciones por WhatsApp</div>
+          </div>
+        </div>
+
+        <h1>Regalos corporativos y productos ecológicos en Nicaragua</h1>
+        <p>
+          Armá tu lista de productos, definí cantidades y enviánosla por WhatsApp para cotizar rápido.
+        </p>
+
+        <h2>Entrá al sitio</h2>
+        <div class="grid" role="list">
+          <a class="btn" role="listitem" href="./es/">
+            <span>Español</span>
+            <span class="muted">Catálogo y cotización</span>
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+          navigator.serviceWorker.register("./service-worker.js").catch(function (error) {
+            console.error("Service worker registration failed:", error);
+          });
+        });
+      }
+    </script>
+
+    <script>
+      (function () {
+        var path = window.location.pathname || "";
+        var isSpanishRoute = path.indexOf("/es/") !== -1;
+        if (isSpanishRoute) return;
+        window.location.replace("./es/" + window.location.search + window.location.hash);
+      })();
+    </script>
+  </body>
+</html>
