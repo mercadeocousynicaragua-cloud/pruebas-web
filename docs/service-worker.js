@@ -1,4 +1,4 @@
-const CACHE_NAME = "cousy-cache-v19";
+const CACHE_NAME = "cousy-cache-v20";
 const PRECACHE_URLS = [
   "./",
   "./index.html",
@@ -27,6 +27,7 @@ const PRECACHE_URLS = [
   "./es/nosotros.html",
   "./es/sostenibilidad.html",
   "./js/layout.js",
+  "./js/pwa.js",
   "./js/site.js",
   "./js/cart.js",
   "./js/cotizacion.js",

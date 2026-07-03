@@ -1,5 +1,6 @@
 import { initHeaderView } from "./header.js";
 import { initAnalytics } from "./analytics.js";
+import "./pwa.js";
 
 const ROUTE_MAP = Object.freeze({
   es: Object.freeze({
@@ -275,22 +276,6 @@ function enableSocialLinks(social) {
   }
 }
 
-let swRegisterPromise = null;
-
-async function registerServiceWorker() {
-  if (!("serviceWorker" in navigator)) return;
-  if (swRegisterPromise) return swRegisterPromise;
-
-  swRegisterPromise = navigator.serviceWorker
-    .register(fromRoot("service-worker.js"))
-    .catch(() => null)
-    .finally(() => {
-      swRegisterPromise = null;
-    });
-
-  return swRegisterPromise;
-}
-
 async function initLayout() {
   const lang = "es";
 
@@ -327,7 +312,6 @@ async function initLayout() {
     // noop
   }
 
-  void registerServiceWorker();
 }
 
 let initPromise = null;

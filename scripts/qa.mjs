@@ -32,6 +32,7 @@ const requiredFiles = [
   "docs/config/site.json",
   "docs/data/products.json",
   "docs/js/layout.js",
+  "docs/js/pwa.js",
   "docs/js/tienda.js",
   "docs/partials/header-es.html",
   "docs/robots.txt",
@@ -96,6 +97,7 @@ const storeHtml = readText("docs/es/tienda/index.html");
 check(!storeHtml.includes("/es/tienda.html#"), "docs/es/tienda/index.html no inyecta sourceUrl legacy");
 
 const publicPages = [
+  "docs/index.html",
   "docs/es/index.html",
   "docs/es/tienda/index.html",
   "docs/es/cotizacion/index.html",
@@ -106,6 +108,12 @@ const publicPages = [
 
 publicPages.forEach((relPath) => {
   const html = readText(relPath);
+  check(html.includes('rel="manifest"'), `${relPath} declara manifest para instalacion PWA`);
+  check(html.includes("apple-mobile-web-app-capable"), `${relPath} declara web app para Apple`);
+});
+
+publicPages.slice(1).forEach((relPath) => {
+  const html = readText(relPath);
   check(html.includes('data-site-header') && html.includes('data-partial-injected="1"'), `${relPath} incluye header renderizado`);
   check(html.includes('data-site-footer') && html.includes('data-partial-injected="1"'), `${relPath} incluye footer renderizado`);
   check(html.includes("data-cart-count"), `${relPath} mantiene el badge del carrito de cotizacion`);
@@ -113,7 +121,12 @@ publicPages.forEach((relPath) => {
 });
 
 const rootHtml = readText("docs/index.html");
-check(rootHtml.includes('window.location.replace("./es/"'), "docs/index.html redirige a /es/ con ruta canonica");
+check(rootHtml.includes('href="./es/"'), "docs/index.html mantiene acceso a /es/ desde la landing");
+check(rootHtml.includes('src="./js/pwa.js"'), "docs/index.html carga el arranque compartido de la PWA");
+
+const manifest = readJson("docs/manifest.json");
+check(manifest.start_url === "./es/", "manifest.json abre la app instalada en /es/");
+check(manifest.id === "./es/", "manifest.json usa un id estable para la app instalada");
 
 const serviceWorker = readText("docs/service-worker.js");
 [
@@ -127,6 +140,7 @@ const serviceWorker = readText("docs/service-worker.js");
 ].forEach((route) => {
   check(serviceWorker.includes(`"${route}"`), `service-worker precachea ${route}`);
 });
+check(serviceWorker.includes('"./js/pwa.js"'), "service-worker precachea el arranque PWA");
 
 const robots = readText("docs/robots.txt");
 check(robots.includes("Sitemap: https://cousynicaragua.com/sitemap.xml"), "robots.txt publica el sitemap canonico");

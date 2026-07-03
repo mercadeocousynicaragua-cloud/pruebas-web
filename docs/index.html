@@ -18,6 +18,7 @@
     <meta name="robots" content="index,follow" />
     <meta name="theme-color" content="#ec1665" />
     <link rel="manifest" href="./manifest.json" />
+    <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="apple-mobile-web-app-title" content="Cousy" />
@@ -129,23 +130,6 @@
       </div>
     </main>
 
-    <script>
-      if ("serviceWorker" in navigator) {
-        window.addEventListener("load", function () {
-          navigator.serviceWorker.register("./service-worker.js").catch(function (error) {
-            console.error("Service worker registration failed:", error);
-          });
-        });
-      }
-    </script>
-
-    <script>
-      (function () {
-        var path = window.location.pathname || "";
-        var isSpanishRoute = path.indexOf("/es/") !== -1;
-        if (isSpanishRoute) return;
-        window.location.replace("./es/" + window.location.search + window.location.hash);
-      })();
-    </script>
+    <script type="module" src="./js/pwa.js"></script>
   </body>
 </html>
